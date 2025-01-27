@@ -28,4 +28,12 @@ module.exports = {
     ],
   },
   mode: "development", // 없으면 warning 이 남
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    port: 9000,
+    open: true,
+    hot: true,
+  },
 };
