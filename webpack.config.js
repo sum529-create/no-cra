@@ -1,11 +1,18 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/app.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.html",
+      filename: "index.html",
+    }),
+  ],
   module: {
     rules: [
       //.css .js 등 서로 다른 확장자를 가진 파일을 처리할 때 어떤 규칙을 적용할지 정의
